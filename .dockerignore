@@ -1,0 +1,10 @@
+.env
+.dockerignore
+.editorconfig
+.gitattributes
+.github
+.gitignore
+docker-compose.yml
+Dockerfile
+LICENSE
+README.md

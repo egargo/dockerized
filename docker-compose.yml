@@ -1,0 +1,27 @@
+services:
+    mysql:
+        image: mysql
+        container_name: egargo.mysql
+        command: --default-authentication-plugin=caching_sha2_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            TZ: Asia/Manila
+        volumes:
+            - egargo-data:/var/lib/mysql
+        ports:
+            - 3306:3306
+
+    adminer:
+        image: adminer
+        container_name: egargo.adminer
+        environment:
+            ADMINER_DESIGN: pepa-linha-dark
+        ports:
+            - 8080:8080
+
+volumes:
+    egargo-data: {}
