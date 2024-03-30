@@ -19,7 +19,7 @@ services:
         image: adminer
         container_name: egargo.adminer
         environment:
-            ADMINER_DESIGN: pepa-linha-dark
+            ADMINER_DESIGN: nette
         ports:
             - 8080:8080
 
