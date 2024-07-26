@@ -20,6 +20,12 @@ Everything Dockerized
 | PostgreSQL                | `docker compose up -d postgres`               |
 
 
+### Configuration
+
+Create a copy of `.env.example` named `.env`, then open the `.env` and set the
+required environment variables.
+
+
 ### Connecting to Database
 
 - Adminer
