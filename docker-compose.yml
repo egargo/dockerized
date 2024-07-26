@@ -2,7 +2,6 @@ services:
     mysql:
         image: mysql
         container_name: egargo.mysql
-        command: --default-authentication-plugin=caching_sha2_password
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -10,10 +9,10 @@ services:
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
             MYSQL_DATABASE: ${MYSQL_DATABASE}
             TZ: Asia/Manila
-        volumes:
-            - egargo-data:/var/lib/mysql
         ports:
             - 3306:3306
+        volumes:
+            - egargo-mysql-data:/var/lib/mysql
 
     postgres:
         image: postgres
@@ -21,18 +20,23 @@ services:
         restart: always
         environment:
             POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-        volumes:
-            - egargo-data:/var/lib/postgresql
         ports:
             - 5432:5432
+        volumes:
+            - egargo-postgres-data:/var/lib/postgresql
 
     adminer:
         image: adminer
         container_name: egargo.adminer
+        restart: always
         environment:
             ADMINER_DESIGN: nette
         ports:
             - 8080:8080
+        depends_on:
+            - mysql
+            - postgres
 
 volumes:
-    egargo-data: {}
+    egargo-mysql-data:
+    egargo-postgres-data:
