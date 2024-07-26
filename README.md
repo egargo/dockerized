@@ -28,7 +28,8 @@ required environment variables.
 
 ### Connecting to Database
 
-> [!TIP] To get the IP Address of the Docker containers, run the docker inspect command: `docker inspect <container_name> | grep IPAddress`.
+> [!TIP]
+> To get the IP Address of the Docker containers, run the docker inspect command: `docker inspect <container_name> | grep IPAddress`, then copy and paste the container's IP address to Adminer's `Server` field.
 
 Open [Adminer](http://localhost:8080/) and follow the configuration below.
 
