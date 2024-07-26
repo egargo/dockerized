@@ -13,11 +13,11 @@ Everything Dockerized
 
 ### Databases
 
-| Name                      | Command                                       |
-|---------------------------|-----------------------------------------------|
-| Adminer                   | `docker compose up -d adminer`                |
-| MySQL                     | `docker compose up -d mysql`                  |
-| PostgreSQL                | `docker compose up -d postgres`               |
+| Name       | Command                         | Description              |
+|------------|---------------------------------|--------------------------|
+| Adminer    | `docker compose up -d adminer`  | Database management tool |
+| MySQL      | `docker compose up -d mysql`    | MySQL                    |
+| PostgreSQL | `docker compose up -d postgres` | PostgreSQL               |
 
 
 ### Configuration
@@ -28,27 +28,20 @@ required environment variables.
 
 ### Connecting to Database
 
-- Adminer
-    - MySQL
-        ```
-        System: MySQL
-        Server: ${docker inspect egargo.mysql | grep IPAddress}
-        ```
-    - PostgreSQL
-        ```
-        System: PostgreSQL
-        Server: ${docker inspect egargo.postgres | grep IPAddress}
-        ```
+> [!TIP] To get the IP Address of the Docker containers, run the docker inspect command: `docker inspect <container_name> | grep IPAddress`.
 
-- DBeaver
-    - MySQL
-        ```
-        Host: localhost?allowPublicKeyRetrieval=true&useSSL=false
-        ```
-    - PostgreSQL
-        ```
-        Host: localhost
-        ```
+Open [Adminer](http://localhost:8080/) and follow the configuration below.
+
+| Database   | Adminer Configuration |
+|------------|-----------------------|
+| MySQL      | System: MySQL         |
+|            | Server: 172.X.X.X     |
+|            |                       |
+|            |                       |
+| PostgreSQL | System: PostgreSQL    |
+|            | Server: 172.X.X.X     |
+|            |                       |
+|            |                       |
 
 
 ### License
