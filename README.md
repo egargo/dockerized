@@ -37,19 +37,19 @@ required environment variables.
 
 | Database   | DBeaver Configuration                                           |
 |------------|-----------------------------------------------------------------|
-| MySQL      | Host: 172.X.X.X                                                 |
-|            |       localhost                                                 |
-|            | Database: <db_name>`?useSSL=false&allowPublicKeyRetrieval=true` |
-|            | Port: 3306                                                      |
+| MySQL      | Host: `172.X.X.X`                                               |
+|            |       `localhost`                                               |
+|            | Database: `<db_name>?useSSL=false&allowPublicKeyRetrieval=true` |
+|            | Port: `3306`                                                    |
 |            | Username: `postgres`                                            |
 |            | Password: `<passwor>`                                           |
 |            |                                                                 |
 |            |                                                                 |
-| Postgres   | Host: 172.X.X.X                                                 |
-|            |       localhost                                                 |
+| Postgres   | Host: `172.X.X.X`                                               |
+|            |       `localhost`                                               |
 |            | Database: `<db_name>`                                           |
-|            | Port: 5432                                                      |
-|            | Username: root                                                  |
+|            | Port: `5432`                                                    |
+|            | Username: `root`                                                |
 |            | Password: `<password>`                                          |
 
 
