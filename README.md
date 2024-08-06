@@ -6,10 +6,15 @@ Everything Dockerized
 ## Contents
 
 - [Contents](#contents)
+    - [Dependencies](#dependencies)
     - [Databases](#databases)
     - [Connecting to Database](#connecting-to-database)
 - [License](#license)
 
+
+### Dependencies
+
+- DBeaver - I recommend using DBeaver as it is the most easy to use and accessible database interface.
 
 ### Databases
 
@@ -17,7 +22,6 @@ Everything Dockerized
 |------------|---------------------------------|--------------------------|
 | Adminer    | `docker compose up -d adminer`  | Database management tool |
 | MySQL      | `docker compose up -d mysql`    | MySQL                    |
-| PostgreSQL | `docker compose up -d postgres` | PostgreSQL               |
 
 
 ### Configuration
@@ -31,18 +35,22 @@ required environment variables.
 > [!TIP]
 > To get the IP Address of the Docker containers, run the docker inspect command: `docker inspect <container_name> | grep IPAddress`, then copy and paste the container's IP address to Adminer's `Server` field.
 
-Open [Adminer](http://localhost:8080/) and follow the configuration below.
-
-| Database   | Adminer Configuration |
-|------------|-----------------------|
-| MySQL      | System: MySQL         |
-|            | Server: 172.X.X.X     |
-|            |                       |
-|            |                       |
-| PostgreSQL | System: PostgreSQL    |
-|            | Server: 172.X.X.X     |
-|            |                       |
-|            |                       |
+| Database   | DBeaver Configuration                                           |
+|------------|-----------------------------------------------------------------|
+| MySQL      | Host: 172.X.X.X                                                 |
+|            |       localhost                                                 |
+|            | Database: <db_name>`?useSSL=false&allowPublicKeyRetrieval=true` |
+|            | Port: 3306                                                      |
+|            | Username: postgres                                              |
+|            | Password: <password>                                            |
+|            |                                                                 |
+|            |                                                                 |
+| Postgres   | Host: 172.X.X.X                                                 |
+|            |       localhost                                                 |
+|            | Database: <db_name>                                             |
+|            | Port: 5432                                                      |
+|            | Username: root                                                  |
+|            | Password: <password>                                            |
 
 
 ### License
