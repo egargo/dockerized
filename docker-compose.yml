@@ -25,17 +25,17 @@ services:
         volumes:
             - egargo-postgres-data:/var/lib/postgresql
 
-    adminer:
-        image: adminer
-        container_name: egargo.adminer
-        restart: always
-        environment:
-            ADMINER_DESIGN: nette
-        ports:
-            - 8080:8080
-        depends_on:
-            - mysql
-            - postgres
+    # adminer:
+    #     image: adminer
+    #     container_name: egargo.adminer
+    #     restart: always
+    #     environment:
+    #         ADMINER_DESIGN: nette
+    #     ports:
+    #         - 8080:8080
+    #     depends_on:
+    #         - mysql
+    #         - postgres
 
 volumes:
     egargo-mysql-data:
