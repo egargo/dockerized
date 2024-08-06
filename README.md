@@ -14,7 +14,9 @@ Everything Dockerized
 
 ### Dependencies
 
-- DBeaver - I recommend using DBeaver as it is the most easy to use and accessible database interface.
+- [Docker](https://www.docker.com/)
+- [DBeaver](https://dbeaver.io/) - I recommend using DBeaver as it is the most easy to use and accessible database interface.
+    - [Linux](https://flathub.org/apps/io.dbeaver.DBeaverCommunity)
 
 ### Databases
 
