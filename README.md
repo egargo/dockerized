@@ -9,6 +9,8 @@ Everything Dockerized
     - [Dependencies](#dependencies)
     - [Databases](#databases)
     - [Connecting to Database](#connecting-to-database)
+        - [CLI](#cli)
+        - [GUI](#gui)
 - [License](#license)
 
 
@@ -17,6 +19,7 @@ Everything Dockerized
 - [Docker](https://www.docker.com/)
 - [DBeaver](https://dbeaver.io/) - I recommend using DBeaver as it is the most easy to use and accessible database interface.
     - [Linux](https://flathub.org/apps/io.dbeaver.DBeaverCommunity)
+
 
 ### Databases
 
@@ -33,6 +36,17 @@ required environment variables.
 
 
 ### Connecting to Database
+
+#### CLI
+```bash
+# Default Postgres port is 5432
+docker exec -it <CONTAINER> psql -h <CONTAINER_IP> -p <PORT> -U <USERNAME> <DB_NAME>
+
+# Default MySQL port is 3306
+docker exec -it <CONTAINER> mysql -u <USERNAME> -p
+```
+
+#### GUI
 
 > [!TIP]
 > To get the IP Address of the Docker containers, run the docker inspect command: `docker inspect <container_name> | grep IPAddress`, then copy and paste the container's IP address to Adminer's `Server` field.
