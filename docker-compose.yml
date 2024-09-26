@@ -1,4 +1,14 @@
 services:
+    keycloak:
+        image: quay.io/keycloak/keycloak
+        container_name: egargo.keycloak
+        environment:
+            KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN_USER}
+            KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+        command: start-dev
+        ports:
+            - 8080:8080
+
     mysql:
         image: mysql
         container_name: egargo.mysql
@@ -26,6 +36,29 @@ services:
         volumes:
             - egargo-postgres-data:/var/lib/postgresql
 
+    # kafka:
+    #     image: apache/kafka
+    #     container_name: egargo.kafka
+    #     environment:
+    #         KAFKA_NODE_ID: 1
+    #         KAFKA_ADVERTISED_PORT: 9092
+    #         KAFKA_PROCESS_ROLES: broker,controller
+    #         # KAFKA_LISTENERS: PLAINTEXT://localhost:9092,CONTROLLER://localhost:9093
+    #         KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+    #         KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+    #         KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+    #         KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+    #         KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
+    #         KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    #         KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+    #         KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+    #         KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+    #         KAFKA_NUM_PARTITIONS: 3
+    #     ports:
+    #         - 9092:9092
+    #     volumes:
+    #         - egargo-kafka-data:/var/lib/kafka
+
     # adminer:
     #     image: adminer
     #     container_name: egargo.adminer
@@ -41,3 +74,4 @@ services:
 volumes:
     egargo-mysql-data:
     egargo-postgres-data:
+    # egarg-kafka-data:
