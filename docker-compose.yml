@@ -2,12 +2,15 @@ services:
     keycloak:
         image: quay.io/keycloak/keycloak
         container_name: egargo.keycloak
+        restart: always
         environment:
             KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN_USER}
             KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
         command: start-dev
         ports:
             - 8080:8080
+        volumes:
+            -  egargo-keycloak-data:/opt/jboss/keycloak/standalone/data/
 
     mysql:
         image: mysql
@@ -24,6 +27,23 @@ services:
         volumes:
             - egargo-mysql-data:/var/lib/mysql
 
+    mysql5:
+        image: mysql:5
+        container_name: egargo.mysql5
+        # restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            TZ: Asia/Manila
+        ports:
+            - 3303:3306
+        expose:
+            - 3303
+        volumes:
+            - egargo-mysql5-data:/var/lib/mysql
+
     postgres:
         image: postgres
         container_name: egargo.postgres
@@ -35,6 +55,19 @@ services:
             - 5432:5432
         volumes:
             - egargo-postgres-data:/var/lib/postgresql
+
+    redis:
+        image: redis
+        container_name: egargo.redis
+        restart: always
+        environment:
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+            REDIS_DATABASES: 16
+        ports:
+            - 6379:6379
+        volumes:
+            - egargo-redis-data:/root/redis
 
     # kafka:
     #     image: apache/kafka
@@ -73,5 +106,8 @@ services:
 
 volumes:
     egargo-mysql-data:
+    egargo-mysql5-data:
     egargo-postgres-data:
+    egargo-redis-data:
+    egargo-keycloak-data:
     # egarg-kafka-data:
