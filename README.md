@@ -27,6 +27,8 @@ Everything Dockerized
 |------------|---------------------------------|--------------------------|
 | Adminer    | `docker compose up -d adminer`  | Database management tool |
 | MySQL      | `docker compose up -d mysql`    | MySQL                    |
+| Postgres   | `docker compose up -d postgres` | PostgreSQL               |
+| Redis      | `docker compose up -d redis`    | Redis                    |
 | Keycloak   | `docker compose up -d keycloak` | Keycloak                 |
 
 
